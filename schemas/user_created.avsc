@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "UserCreated",
+  "namespace": "com.streaminganalysis.events",
+  "doc": "A user record sourced from randomuser.me, published when a new user is generated.",
+  "fields": [
+    {"name": "id", "type": "string", "doc": "UUID assigned at production time"},
+    {"name": "first_name", "type": "string"},
+    {"name": "last_name", "type": "string"},
+    {"name": "gender", "type": "string"},
+    {"name": "email", "type": "string"},
+    {"name": "username", "type": "string"},
+    {"name": "country", "type": "string"},
+    {"name": "post_code", "type": "string"},
+    {"name": "phone", "type": "string"},
+    {"name": "picture_url", "type": "string"},
+    {
+      "name": "registered_date",
+      "type": {"type": "long", "logicalType": "timestamp-millis"},
+      "doc": "When the user account was 'registered', per the source API"
+    },
+    {
+      "name": "created_at",
+      "type": {"type": "long", "logicalType": "timestamp-millis"},
+      "doc": "When this event was produced into Kafka"
+    }
+  ]
+}
