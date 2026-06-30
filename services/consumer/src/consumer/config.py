@@ -15,7 +15,7 @@ class ConsumerSettings(BaseSettings):
     dlq_topic: str = "users_created.dlq"
 
     postgres_host: str = "localhost"
-    postgres_port: int = 5432
+    postgres_port: int = 5433
     postgres_db: str = "streaming"
     postgres_user: str = "streaming"
     postgres_password: str = "streaming"
