@@ -1,0 +1,33 @@
+[project]
+name = "streaming-data-analysis"
+version = "0.1.0"
+description = "Production-style Kafka + Schema Registry + Spark + Postgres + Airflow streaming pipeline"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv.workspace]
+members = ["packages/*", "services/*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.6",
+    "pre-commit>=3.8",
+    "pytest>=8.3",
+    "mypy>=1.11",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["packages", "services"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4", "SIM", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["streaming_common"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
