@@ -8,6 +8,7 @@ resolution-markers = [
 
 [manifest]
 members = [
+    "consumer",
     "producer",
     "streaming-common",
     "streaming-data-analysis",
@@ -173,6 +174,25 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/c3/37/bfc66b4ee67cd10d7c30bfd4ea3611085d3c683e29f1087d93f3f591c626/confluent_kafka-2.3.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e08b601e09a584c6a4a8c323a71e92fca31a8826ed33b5b95b26783b7a996026", size = 4036354, upload_time = "2023-10-25T18:38:12.818Z" },
     { url = "https://files.pythonhosted.org/packages/14/b8/9179afff00df6a5716d8f71730c7de4391832113d53444db42e5fbabc873/confluent_kafka-2.3.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:7fd1ab257d4fa0e2a98529e4eb2102cf8352ad6b3d22110d6cf0bb1f598893d9", size = 14123225, upload_time = "2023-10-25T18:38:30.427Z" },
     { url = "https://files.pythonhosted.org/packages/60/e4/e234db242139e81019b3d33355f6022f1e9d3fa03ecc2b62ebc1c00a8dbf/confluent_kafka-2.3.0-cp312-cp312-win_amd64.whl", hash = "sha256:1ccf6483d86535627cad7b94982ea95d9fa9ae04ddb552e097c1211ffcde5ea7", size = 3445257, upload_time = "2023-10-25T18:38:37.471Z" },
+]
+
+[[package]]
+name = "consumer"
+version = "0.1.0"
+source = { editable = "services/consumer" }
+dependencies = [
+    { name = "pydantic-settings" },
+    { name = "pyspark" },
+    { name = "requests" },
+    { name = "streaming-common" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pydantic-settings", specifier = ">=2.5" },
+    { name = "pyspark", specifier = "==3.5.1" },
+    { name = "requests", specifier = ">=2.32" },
+    { name = "streaming-common", editable = "packages/common" },
 ]
 
 [[package]]
@@ -455,6 +475,15 @@ requires-dist = [
 ]
 
 [[package]]
+name = "py4j"
+version = "0.10.9.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1e/f2/b34255180c72c36ff7097f7c2cdca02abcbd89f5eebf7c7c41262a9a0637/py4j-0.10.9.7.tar.gz", hash = "sha256:0b6e5315bb3ada5cf62ac651d107bb2ebc02def3dee9d9548e3baac644ea8dbb", size = 1508234, upload_time = "2022-08-12T22:49:09.792Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/10/30/a58b32568f1623aaad7db22aa9eafc4c6c194b429ff35bdc55ca2726da47/py4j-0.10.9.7-py2.py3-none-any.whl", hash = "sha256:85defdfd2b2376eb3abf5ca6474b51ab7e0de341c75a02f46dc9b5976f5a5c1b", size = 200481, upload_time = "2022-08-12T22:49:07.05Z" },
+]
+
+[[package]]
 name = "pydantic"
 version = "2.13.4"
 source = { registry = "https://pypi.org/simple" }
@@ -566,6 +595,15 @@ sdist = { url = "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176", size = 1231151, upload_time = "2026-03-29T13:29:30.038Z" },
 ]
+
+[[package]]
+name = "pyspark"
+version = "3.5.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "py4j" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/73/e5/c9eb78cc982dafb7b5834bc5c368fe596216c8b9f7c4b4ffa104c4d2ab8f/pyspark-3.5.1.tar.gz", hash = "sha256:dd6569e547365eadc4f887bf57f153e4d582a68c4b490de475d55b9981664910", size = 316955685, upload_time = "2024-02-26T02:41:49.644Z" }
 
 [[package]]
 name = "pytest"

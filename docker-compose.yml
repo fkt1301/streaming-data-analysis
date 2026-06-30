@@ -39,3 +39,18 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
+
+  app_db:
+    image: postgres:16
+    container_name: app_db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: streaming
+      POSTGRES_PASSWORD: streaming
+      POSTGRES_DB: streaming
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U streaming -d streaming"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
