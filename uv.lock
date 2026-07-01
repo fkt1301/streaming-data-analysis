@@ -181,6 +181,7 @@ name = "consumer"
 version = "0.1.0"
 source = { editable = "services/consumer" }
 dependencies = [
+    { name = "confluent-kafka" },
     { name = "pydantic-settings" },
     { name = "pyspark" },
     { name = "requests" },
@@ -189,6 +190,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "confluent-kafka", specifier = "==2.3.0" },
     { name = "pydantic-settings", specifier = ">=2.5" },
     { name = "pyspark", specifier = "==3.5.1" },
     { name = "requests", specifier = ">=2.32" },
